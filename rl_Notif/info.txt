@@ -1,0 +1,11 @@
+---------------- TOUT LE MONDE ----------------
+--- COTER CLIENT ---
+-- TriggerEvent("rl_Notif", "#ff7b00", 'Titre', "Description")
+
+--- COTER SERVER ---
+-- TriggerClientEvent("rl_Notif", xPlayer.source, "#ff7b00", 'Titre', "Description")
+
+---------------- COULEUR ----------------
+
+#ff7b00 = Couleur
+Site = https://htmlcolorcodes.com/fr/
