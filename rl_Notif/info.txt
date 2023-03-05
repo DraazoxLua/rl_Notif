@@ -1,9 +1,48 @@
----------------- TOUT LE MONDE ----------------
+---------------- COMMENT MODIFIER LA COULEUR ET LA FUNCTION ----------------
+rl_Notif\html\style.css
+Chercher ceci : 
+
+.notification {
+  margin-bottom: 1vh;
+  position: relative;
+  top: 74.0vh;
+  left: 2.2vh;
+  background: rgba(0, 0, 0, 0.55);
+  width: 24vh;
+  min-height: 3vh;
+  word-wrap: break-word;
+  padding: 0.8vh;
+  border-left: 3px solid #ff7b00;
+
+  -webkit-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.55);
+  box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+Et changer le ( #ff7b00 ) de border-left: et ça vous changera la couleur de la barre du côté gauche.
+
+Et si vous ne voulez pas mettre la ligne avec l'export ou autre côté es_extended aller 
+
+es_extended\client\functions.lua
+
+Et chercher la function : 
+
+function ESX.ShowNotification
+
+Et remplacer là par celle-ci : 
+
+function ESX.ShowNotification(color, titre, msg)
+    TriggerEvent("rl_Notif", color, titre, msg)
+end
+
+---------------- EXEMPLE ----------------
+
 --- COTER CLIENT ---
--- TriggerEvent("rl_Notif", "#ff7b00", 'Titre', "Description")
+-- ESX.ShowNotification("#ff7b00", "Titre", "Description")
 
 --- COTER SERVER ---
--- TriggerClientEvent("rl_Notif", xPlayer.source, "#ff7b00", 'Titre', "Description")
+-- TriggerClientEvent("esx:showNotification", xPlayer.source, "#ff7b00", 'Titre', "Description")
 
 ---------------- COULEUR ----------------
 
